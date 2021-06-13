@@ -1,0 +1,67 @@
+import { useEffect, useState } from "react";
+import "./App.css";
+import PostList from "./components/PostList/PostList";
+
+function App() {
+  const [todos, setTodos] = useState([
+    {
+      id: 1,
+      title: "Title 1",
+    },
+    {
+      id: 2,
+      title: "Title 2",
+    },
+    {
+      id: 3,
+      title: "Title 3",
+    },
+  ]);
+  const [postList, setPostList] = useState([]);
+
+  function handleTodoClick(todo) {
+    const index = todos.findIndex((x) => x.id === todo.id);
+    if (index < 0) return;
+    const newTodoList = [...todos];
+    newTodoList.splice(index, 1);
+    setTodos(newTodoList);
+  }
+
+  function handleTodoFormSubmit(formValues) {
+    console.log("Form sunmit ", formValues);
+    const newTodo = {
+      id: Math.random(),
+      ...formValues,
+    };
+    const newTodoList = [...todos];
+    newTodoList.push(newTodo);
+    setTodos(newTodoList);
+    console.log(todos);
+  }
+
+  useEffect(() => {
+    async function fetchPostList() {
+      try {
+        const requestUrl =
+          "http://js-post-api.herokuapp.com/api/posts?_limit=10&_page=1";
+        const response = await fetch(requestUrl);
+        const responseJSON = await response.json();
+        const { data } = responseJSON;
+        // const newPostList = [...postList];
+        setPostList(data);
+        console.log({ responseJSON });
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    fetchPostList();
+  }, []);
+  return (
+    <div className="app">
+      <h1>Post List</h1>
+      <PostList posts={postList} />
+    </div>
+  );
+}
+
+export default App;

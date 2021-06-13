@@ -1,0 +1,78 @@
+React Hook 
+
+1. Hook useState():
+- Giúp functional component có thể sử dụng đc state
+- Là 1 giá trị hoặc là 1 callback functional
+- output là mảng gồm 2 phần tử
+syntax: const [name, setName] = useState('Hau');
+
+2. Array destructoring syntax:
+// before
+const array = ['easy', 'frontend'];
+const a = array[0];
+const b = array[1];
+//  Array destructoring
+const [a, b] = ['easy', 'frontend'];
+
+* Initial State chỉ dùng cho lần đầu, những lần sau bị bỏ rơi
+solotion
+dùng callback function Initial State và nó chỉ chạy 1 lần k re render lại
+function ColorBox(){
+    const [color, setColor] = useState(() => {
+        const initColor = getComplicatedColor();
+        return initColor;
+    })
+}
+
+3. useEffect 
+Trường hợp 1 k có dependencies thì sẽ luôn luôn được chạy sau mỗi lần render
+side effect 
+Mounting (render lan đầu tiên )
+- rendering
+- run useEffect
+- k run cleanup
+Updating
+- rendering
+- run `useEffect() cleanup` nếu dependencies thay dổi
+- run `useEffect()` nếu dependencies thay đổi
+
+Unmouting
+- run `useEffect() cleanup`
+
+Trường hợp có dependencies rỗng thì sẽ chạy đúng 1 lần sau lần render đầu tiên
+- Effect chạy đúng 1 lần => ComponentDidmount
+- Clean up  chạy đúng 1 lần => ComponentUnmount
+
+Trường hợp có dependencies có data
+phụ thuộc vào data ( state ) có thay đổi thì mới chạy useEffect
+useEffect là Synchronous  function
+
+0. hoisting
+Hoisting là hành động mặc định của Javascript, nó sẽ chuyển phần khai báo lên phía trên top Trong Javascript, một biến (variable) có thể được khai báo sau khi được sử dụng
+1. callback
+2. var
+3. let
+4. const
+5. promise 
+6. async/await
+7. cookie là gì?
+8. session là gì?
+9. tham chiếu/tham trị
+10. for
+11. forEach
+12. map
+13. filter
+14. find
+15. reduce
+16. life cycle
+# Mounting ( được add vào trong DOM ) - chạy đúng 1 lần
+- Sau khi render chạy componentDidMount
+- componentDidMount gọi API
+# Updating (chạy nhiều lần)
+- Khi props/state thay dổi thì sẽ trigger lại hàm render()
+-render xong thì componentDi đUpate
+# Unmounting ( được remove khỏi DOM) - chạy đúng 1 lần
+- componentWillUnMount 
+- Reset dữ liệu trên redux
+
+# render()
