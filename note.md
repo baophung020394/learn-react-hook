@@ -297,6 +297,9 @@ FILTER_LIST
 
 # Chi tiết sản phẩm
 - nested routing
+
+# IIFE trong Javascript
+https://youtu.be/qjuvLUiQrVs
 # serverless.yml ( của AWS )
 
 - plugin chạy trên nodejs
