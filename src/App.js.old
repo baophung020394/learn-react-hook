@@ -3,6 +3,13 @@ import "./App.css";
 import PostList from "./components/PostList/PostList";
 
 function App() {
+   const hello = "bao";
+  const isMale = true;
+  const student = {
+    name: "Bao",
+    age: 20,
+  };
+  const colors = ["red", "green", "blue"];
   const [todos, setTodos] = useState([
     {
       id: 1,
@@ -60,6 +67,26 @@ function App() {
     <div className="app">
       <h1>Post List</h1>
       <PostList posts={postList} />
+      <h1>
+        Hello {hello} - {isMale ? "Male" : "FeMale"}
+      </h1>
+      Cách 2: {isMale ? <p>Male</p> : <p>Female</p>}
+      Cách 3: Nên dùng cho các cách phức tạp
+      {isMale && <p>Male</p>}
+      {!isMale && <p>FeMale</p>}
+      {isMale && (
+        <>
+          <p>Male</p>
+          <p>Male</p>
+          <p>Male</p>
+        </>
+      )}
+      <p>{student.name}</p>
+      <ul>
+        {colors.map((x) => (
+          <li style={{ color: x }}>{x}</li>
+        ))}
+      </ul>
     </div>
   );
 }
