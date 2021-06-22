@@ -295,6 +295,8 @@ FILTER_LIST
 - onRemove: func
 - onToggle: func
 
+# Chi tiết sản phẩm
+- nested routing
 # serverless.yml ( của AWS )
 
 - plugin chạy trên nodejs
@@ -320,3 +322,9 @@ FILTER_LIST
 - concurrency: số lần chạy
 - http response: trả về cho browser hiểu
 - webpack:
+
+# Cách tạo project vuejs
+vuex, eslint, 
+vue  babel target es5
+progressive web app
+service worker
