@@ -297,10 +297,33 @@ FILTER_LIST
 
 # Chi tiết sản phẩm
 - nested routing
+```
+# DetailPage handleSubmit
+|__ AddToCartForm (form management)
+| |__ QuantityField ()
+```
+# Giỏ hàng
+DetailPage
+Click Chọn mua
+Open mini cart
+Go to Cart Page
 
+Lưu gì?
+Cart
+- Khi gặp vấn đề về global State thì dùng redux
+- showMiniCart : true/false
+- CardItems => item (product, quantity)
+- cartItemCount
+- cartTotal
+
+# createSelector ?
+- Selector library cho redux
+- Tính toán dẫn xuất.
 # IIFE trong Javascript
 https://youtu.be/qjuvLUiQrVs
 # serverless.yml ( của AWS )
+# Authenticate
+ 
 
 - plugin chạy trên nodejs
 - Chạy k cần máy chủ ( config những cái có sẵn của serverless )
@@ -331,3 +354,62 @@ vuex, eslint,
 vue  babel target es5
 progressive web app
 service worker
+
+vue create ownership
+-Babel
+- Router
+- Vuex
+- css pre
+- linter
+- unit
+-2.x
+-Use history mode for router? Yes
+-SASS/SCSS
+-Airbnb
+-Lint on Save
+-Jest
+-In dedicated config files
+-Yes
+- name
+
+jest.config.js
+copy từ project cũ qua
+
+.eslintrc.js
+copy từ file cũ qua
+
+config store
+chỉ xài trong modules
+
+const defaultState = {
+  language: '',
+  isLoading: false,
+  testMode: false,
+  fetchStatus: 'pending' //,
+  activeStep:1,
+}
+
+src
+|__api/
+| |__ index.js
+|__assets/
+|__fonts/
+|__images/
+|__styles/
+|  |__components/
+|  |__ _app.scss
+|  |__styles.scss
+|__.env.local
+|__.env.development
+
+Jira
+1. Đổi type của ticket
+Link tới PE TICKET
+more -> link -> chọn 'relate to PE' (maintainance)
+issue: team-panda-maitaince-performance-PE
+
+'Delivers PE' PE-...
+ticket Epick link: ví dụ làm bên backend thì gắn tag backend 
+ticket story: liên quan features lớn dự án
+
+more -> log work
